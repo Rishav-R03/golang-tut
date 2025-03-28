@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+/*
+*Unlike arrays, slices are typed only by the
+elements they contain (not the number of elements).
+An uninitialized slice equals to nil and has length 0.
+*/
 func main() {
 	fmt.Println("Welcome to Slices class")
 
@@ -52,4 +57,10 @@ func main() {
 
 	fmt.Println(courses)
 
+	names := make([]string, 3) // pre defined size
+	names[0] = "Abhinav"
+	names[1] = "Raghav"
+	names[2] = "Akhand"
+	print("set", names)
+	print("set", names[2])
 }
