@@ -26,4 +26,10 @@ func main() {
 
 	slice1 := copyNames[2:5]
 	fmt.Println(slice1)
+
+	for i := 0; i < 3; i++ {
+		if names[i] == "Abhinav" {
+			fmt.Println("index", i)
+		}
+	}
 }
