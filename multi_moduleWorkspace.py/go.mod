@@ -1,0 +1,5 @@
+module creatingFirstWorkspace
+
+go 1.24.1
+
+require golang.org/x/example/hello v0.0.0-20250326195304-398e112173f4
