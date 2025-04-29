@@ -18,4 +18,6 @@ func main() {
 	var veglist = [3]string{"Potato", "Beans", "Mushroom"}
 	fmt.Println("Veg list is: ", veglist)
 	fmt.Println("Veg list is: ", len(veglist))
+
+	fruitlist = append(fruitlist("Kiwi"))
 }
