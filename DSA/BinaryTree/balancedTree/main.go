@@ -80,7 +80,8 @@ func dfs(node *Node) int {
 }
 
 func main() {
-	nums := []int{1, -1, 2, -1, 3, -1, 4} // unbalanced
+	nums := []int{1, -1, 2, -1, 3, -1, 4} // unbalanced deep right
+
 	root := InsertIntoTree(nums)
 	root.InorderTraversal()
 	if IsBalanced(root) {
