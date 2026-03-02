@@ -1,62 +1,57 @@
 package main
 
-import "fmt"
+import "math"
 
 type Node struct {
-	Val   int
+	Value int
 	Left  *Node
 	Right *Node
 }
 
-func CreateTree(nums []int) *Node {
+func createTree(nums []int) *Node {
 	if len(nums) == 0 {
 		return nil
 	}
 
-	root := &Node{Val: nums[0]}
+	root := &Node{Value: nums[0]}
 	queue := []*Node{root}
 
-	i := 1
+	ind := 1
 
-	for i < len(nums) {
-		cur := queue[0]
-		queue := queue[1:]
+	for ind < len(nums) {
+		curr := queue[0]
+		queue = queue[1:]
 
-		if i < len(nums) {
-			if nums[i] != -1 {
-				cur.Left = &Node{Val: nums[i]}
-				queue = append(queue, cur.Left)
+		if ind < len(nums) {
+			if nums[ind] != -1 {
+				curr.Left = &Node{Value: nums[ind]}
+				queue = append(queue, curr.Left)
 			}
-			i++
+			ind++
 		}
 
-		if i < len(nums) {
-			if nums[i] != -1 {
-				cur.Right = &Node{Val: nums[i]}
-				queue = append(queue, cur.Right)
+		if ind < len(nums) {
+			if nums[ind] != -1 {
+				curr.Right = &Node{Value: nums[ind]}
+				queue = append(queue, curr.Right)
 			}
-			i++
+			ind++
 		}
 	}
 	return root
-
 }
 
-func MaxDepthOfBT(root *Node) int {
+func maxDepth(root *Node) int {
 	if root == nil {
 		return 0
 	}
+	leftDepth := maxDepth(root.Left)
+	rightDepth := maxDepth(root.Right)
 
-	var leftTree int = MaxDepthOfBT(root.Left)
-	var rightTree int = MaxDepthOfBT(root.Right)
-
-	return 1 + max(leftTree, rightTree)
+	return 1 + int(math.Max(float64(leftDepth), float64(rightDepth)))
 }
-
 func main() {
-	nums := []int{1, 2, 3, 4, -1, -1}
-	root := CreateTree(nums)
-
-	ans := MaxDepthOfBT(root)
-	fmt.Println("We have max depth as \n", ans)
+	nums := []int{3, 9, 20, -1, -1, 15, 7}
+	root := createTree(nums)
+	println(maxDepth(root)) // Output: 3
 }
