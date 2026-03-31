@@ -1,0 +1,16 @@
+server:
+  port: 8000 
+  environment: "development"
+
+rabbitmq:
+  url: "amqp://guest:guest@rabbitmq:5672/"
+  exchange: "events_exchange"
+  queue: "task_queue"
+
+database:
+  host: "db"
+  port: 5432
+  user: "postgres"
+  password: "password"
+  name: "myappdb"
+
